@@ -51,9 +51,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ma9or/yamdb:latest
-          file: api_yamdb/Dockerfile
-
+          tags: ${{ secrets.DOCKER_USERNAME }}/api_yamdb:latest
+          context: api_yamdb
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
