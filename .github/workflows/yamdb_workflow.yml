@@ -19,6 +19,7 @@ jobs:
         python -m pip install --upgrade pip
         # установка flake8 и его плагинов
         pip install flake8 pep8-naming flake8-broken-line flake8-return flake8-isort
+        cd api_yamdb
         # установка зависимостей
         pip install -r requirements.txt
 
@@ -26,7 +27,6 @@ jobs:
       run: |
         # запуск проверки проекта по flake8
         python -m flake8
-        cd api_yamdb
         pytest
 
   build_and_push_to_docker_hub:
